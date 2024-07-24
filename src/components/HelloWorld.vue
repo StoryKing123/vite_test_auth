@@ -2,13 +2,16 @@
 import { ref } from 'vue'
 import { onMounted } from 'vue'
 
+const corpid = 'wwcfe75b0c5adcd008'
+const callbackUrl = window.location.href
 onMounted(() => {
+  console.log(callbackurl)
   try {
     wx.qy.login({
       success: function (res) {
         if (res.code) {
           console.log(res)
-            console.log('222')
+          console.log('222')
         } else {
           console.log('登录失败！' + res.errMsg)
         }
@@ -20,6 +23,12 @@ onMounted(() => {
 
 
 })
+const login = () => {
+  console.log('login')
+  window.location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${corpid}&redirect_uri=${callbackUrl}&response_type=code&scope=snsapi_base#wechat_redirect`
+
+
+}
 
 
 
@@ -52,6 +61,7 @@ const count = ref(0)
     in your IDE for a better DX
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <button @click="login">login</button>
 </template>
 
 <style scoped>
