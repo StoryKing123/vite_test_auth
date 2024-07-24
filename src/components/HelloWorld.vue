@@ -1,6 +1,17 @@
 <script setup>
 import { ref } from 'vue'
 
+wx.qy.login({
+      success: function(res) {
+        if (res.code) {
+          console.log(res)
+       
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    });
+
 defineProps({
   msg: String,
 })
