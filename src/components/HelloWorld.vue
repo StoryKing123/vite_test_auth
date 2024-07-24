@@ -5,7 +5,7 @@ import { onMounted } from 'vue'
 const corpid = 'wwcfe75b0c5adcd008'
 const callbackUrl = window.location.href
 onMounted(() => {
-  console.log(callbackurl)
+  console.log(callbackUrl)
   try {
     wx.qy.login({
       success: function (res) {
