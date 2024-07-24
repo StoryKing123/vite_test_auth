@@ -8,7 +8,7 @@ onMounted(() => {
       success: function (res) {
         if (res.code) {
           console.log(res)
-
+            console.log('222')
         } else {
           console.log('登录失败！' + res.errMsg)
         }
