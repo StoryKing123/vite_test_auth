@@ -1,16 +1,27 @@
 <script setup>
 import { ref } from 'vue'
+import { onMounted } from 'vue'
 
-wx.qy.login({
-      success: function(res) {
+onMounted(() => {
+  try {
+    wx.qy.login({
+      success: function (res) {
         if (res.code) {
           console.log(res)
-       
+
         } else {
           console.log('登录失败！' + res.errMsg)
         }
       }
     });
+  } catch (error) {
+    console.error(error)
+  }
+
+
+})
+
+
 
 defineProps({
   msg: String,
@@ -32,9 +43,8 @@ const count = ref(0)
 
   <p>
     Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
+    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite
+    starter
   </p>
   <p>
     Install
